@@ -19,14 +19,14 @@
     
     var getLocation = function() {
       var suc = function(p){
-		    alert(p.coords.latitude + " " + p.coords.longitude);
+		    alert(p.coords.latitude + " " + p.coords.longitude + " - " + p.coords.accuracy);
       };
-      var fail = function(){};
-      navigator.geolocation.getCurrentPosition(suc,fail);
+      var fail = function(){ alert('fail'); };
+      navigator.geolocation.getCurrentPosition(suc, fail, { enableHighAccuracy: true, maximumAge: 0 });
     }
     
     var beep = function(){
-	    navigator.notification.beep(2);
+	    navigator.notification.beep(1);
     }
 
   	var vibrate = function(){
